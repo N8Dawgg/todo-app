@@ -1,1 +1,1 @@
-console.log("test");
+(()=>{const n=document.querySelector("#content");function e(n,e=[],t=null){var a=document.createElement(n);return typeof e===String?t=e:e.forEach((n=>{a.classList.add(n)})),null!=t&&(a.id=t),a}function t(t=!0){var a=e("div",["panel-container"]),p=e("div",["panel-header"]);p.textContent="T";var r=e("div",["panel-body"]);r.textContent="T";var d=e("p"),o=e("p");d.textContent="   a",o.textContent="   a",r.append(d),r.append(o),a.append(p),a.append(r);var c=[a,p,r];return t&&n.append(a),c}t(),t(),t(),t()})();
