@@ -27,18 +27,19 @@ body {
 
 .roaming-x {
     position: relative;
-    top: -25px;
-    right: -25px;
+    top: -17px;
     rotate: 405deg;
-    scale: 25%;
+    width: 17px;
+    padding-left: 8px;
 }
-
 .roaming-x.initial-adder-box {
     top: 0px;
-    right: 0px;
     rotate: 0deg;
-    scale: 100%;
+    width: 64px;
+    padding-left: 0px;
 }
+
+
 
 .panel-header, .panel-body{
     border-style: outset;
@@ -49,6 +50,7 @@ body {
 }
 
 .panel-header {
+    z-index: 1;
     position: relative;
     left: 0px;
     background-color: rgb(0,255,127);
@@ -57,18 +59,8 @@ body {
     border-top-left-radius: var(--panel-border-radius);
     height: 30px;
     width: var(--panel-width);
-    /* border-bottom-style: solid; */
+    display: flex;
 }
-
-.panel-body {
-    background-color: white;
-    border-color: white;
-    border-bottom-right-radius: var(--panel-border-radius);
-    border-bottom-left-radius: var(--panel-border-radius);
-    border-top-width: 0;
-    
-}
-
 .panel-header.initial-adder-box {
     left: calc((var(--panel-width) - 64px) * 0.5);
     display: flex;
@@ -82,6 +74,57 @@ body {
     border-radius: var(--panel-border-radius);
 }
 
-.panel-container.initial-adder-box {
-    
+
+/* .init-phase .panel-header {
+    border-bottom-left-radius: var(--panel-border-radius);
+    border-bottom-right-radius: var(--panel-border-radius);
+} */
+
+
+.empty:hover .panel-header {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
+.empty .panel-header,.empty.text-edit .panel-header {
+    border-bottom-left-radius: var(--panel-border-radius);
+    border-bottom-right-radius: var(--panel-border-radius);
+}
+
+.panel-body {
+    position: relative;
+    top: -8px;
+    background-color: white;
+    border-color: white;
+    border-bottom-right-radius: var(--panel-border-radius);
+    border-bottom-left-radius: var(--panel-border-radius);
+    border-top-width: 0;
+    min-height: 0px;
+    transform-origin: top;
+}
+
+
+.empty:hover .panel-body{
+    height:  100px;
+    scale: 100% 100%;
+}
+.empty .panel-body, .empty.text-edit .panel-body {
+    height: 0px;
+    scale: 100% 0%;
+}
+
+.init-phase .panel-body {
+    height: 0px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-width: 0;
+    opacity: 0%;
+}
+
+.panel-header-text-edit {
+    width: calc(var(--panel-width) - 17px);
+}
+.initial-adder-box.panel-header-text-edit {
+    width: 0px;
+}
+
+
