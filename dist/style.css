@@ -9,14 +9,13 @@
 }
 
 body {
-    background-color: skyblue;
+    background-color: rgb(50,50,60);
 }
 
 #content {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-
 }
 
 .panel-container {
@@ -127,4 +126,10 @@ body {
     width: 0px;
 }
 
+.body-element-adder {
+    scale: 100%;
+}
 
+.text-edit .body-element-adder {
+    scale: 0%;
+}

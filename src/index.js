@@ -9,6 +9,7 @@ const createPanel = (data) => {
     let panelBody;
     let panelHeaderTextEdit;
     let panelHeaderState = 0;
+    let bodyElementAdder;
     
 
     function panelHeaderClicked() {
@@ -46,11 +47,14 @@ const createPanel = (data) => {
         panelHeaderTextEdit.addEventListener('dblclick', convertTitleToTextEdit);
         panelContainer.classList.remove('text-edit');
 
-        // if (panelHeaderState == 1) {
-        //     panelHeaderState = 2;
-        //     panelContainer.classList.remove('init-phase');
-        //     panelContainer.classList.add('empty');
-        // }
+        if (panelHeaderState == 1) {
+            panelHeaderState = 2;
+            bodyElementAdder = document.createElement('div');
+            
+            panelBody.append()
+            panelContainer.classList.remove('init-phase');
+            panelContainer.classList.add('empty');
+        }
     }
     
     function convertTitleToTextEdit() {
