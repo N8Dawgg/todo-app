@@ -73,13 +73,6 @@ body {
     border-radius: var(--panel-border-radius);
 }
 
-
-/* .init-phase .panel-header {
-    border-bottom-left-radius: var(--panel-border-radius);
-    border-bottom-right-radius: var(--panel-border-radius);
-} */
-
-
 .empty:hover .panel-header {
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
@@ -91,7 +84,7 @@ body {
 
 .panel-body {
     position: relative;
-    top: -8px;
+    top: -2px;
     background-color: white;
     border-color: white;
     border-bottom-right-radius: var(--panel-border-radius);
@@ -127,9 +120,20 @@ body {
 }
 
 .body-element-adder {
-    scale: 100%;
+    scale: 100% 100%;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .text-edit .body-element-adder {
     scale: 0%;
+}
+
+.adder-button {
+    width: 64px;
+    height: 64px;
+}
+
+.disabled{
+    scale: 100% 0%;
 }

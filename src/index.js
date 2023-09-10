@@ -113,6 +113,20 @@ const createPanel = (data) => {
         path.setAttribute('d', 'M40 0H60V40H100V60H60V100H40V60H0V40H40V0Z');
         path.setAttribute('fill', '#00000050');
         roamingX.append(path);
+
+        bodyElementAdder = document.createElement('div');
+        bodyElementAdder.classList.add('body-element-adder');
+        bodyElementAdder.classList.add('disabled');
+        panelBody.append(bodyElementAdder);
+
+        let noteBtn = document.createElement('img');
+        noteBtn.classList.add('adder-button');
+        noteBtn.setAttribute('href','./testSquare.png');
+        bodyElementAdder.append(noteBtn);
+        let chkBoxBtn = document.createElement('img');
+        chkBoxBtn.classList.add('adder-button');
+        chkBoxBtn.setAttribute('href','./testSquare.png');
+        bodyElementAdder.append(chkBoxBtn);
     }
 }
 
