@@ -31,14 +31,16 @@ body {
     width: 17px;
     padding-left: 8px;
 }
+.unmoused .roaming-x {
+    opacity: 0%;
+}
 .roaming-x.initial-adder-box {
+    opacity: 100%;
     top: 0px;
     rotate: 0deg;
     width: 64px;
     padding-left: 0px;
 }
-
-
 
 .panel-header, .panel-body{
     border-style: outset;
@@ -120,20 +122,21 @@ body {
 }
 
 .body-element-adder {
+    transform-origin: top;
     scale: 100% 100%;
     display: flex;
     justify-content: space-evenly;
 }
 
-.text-edit .body-element-adder {
-    scale: 0%;
+.text-edit .body-element-adder, .unmoused .body-element-adder {
+    scale: 100% 0%;
 }
 
 .adder-button {
+    transform-origin: top;
     width: 64px;
     height: 64px;
 }
-
-.disabled{
+.unmoused .adder-button {
     scale: 100% 0%;
 }

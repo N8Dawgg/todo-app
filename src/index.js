@@ -10,7 +10,69 @@ const createPanel = (data) => {
     let panelHeaderTextEdit;
     let panelHeaderState = 0;
     let bodyElementAdder;
-    
+
+    function createInitialPlusBox() {
+        panelContainer = document.createElement('div');
+        panelContainer.classList.add('panel-container');
+        panelContainer.classList.add('empty');
+        panelContainer.classList.add('text-edit');
+        panelContainer.classList.add('initial-adder-box');
+        panelContainer.addEventListener('mouseover', panelBodyMouseover)
+        panelContainer.addEventListener('mouseout', panelBodyMouseout)
+        
+        panelHeader = document.createElement('div');
+        panelHeader.classList.add('panel-header');
+        panelHeader.classList.add('initial-adder-box');
+        panelHeader.classList.add('curve-bottom');
+        
+        panelContainer.append(panelHeader);
+        
+        panelBody = document.createElement('div');
+        panelBody.classList.add('panel-body');
+        panelContainer.append(panelBody);
+
+
+        roamingX = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        roamingX.classList.add('roaming-x');
+        roamingX.classList.add('initial-adder-box');
+        roamingX.setAttribute('width', '50');
+        roamingX.setAttribute('height', '50');
+        roamingX.setAttribute('viewBox', '0 0 100 100');
+        panelHeader.append(roamingX);
+        panelHeader.addEventListener('click', panelHeaderClicked);
+        let path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('d', 'M40 0H60V40H100V60H60V100H40V60H0V40H40V0Z');
+        path.setAttribute('fill', '#00000050');
+        roamingX.append(path);
+
+        bodyElementAdder = document.createElement('div');
+        bodyElementAdder.classList.add('body-element-adder');
+        // bodyElementAdder.classList.add('disabled');
+        panelBody.append(bodyElementAdder);
+
+        let noteBtn = document.createElement('img');
+        noteBtn.classList.add('adder-button');
+        noteBtn.setAttribute('href','./testSquare.png');
+        bodyElementAdder.append(noteBtn);
+        noteBtn.addEventListener('click', noteButtonPressed)
+
+        let chkBoxBtn = document.createElement('img');
+        chkBoxBtn.classList.add('adder-button');
+        chkBoxBtn.setAttribute('href','./testSquare.png');
+        bodyElementAdder.append(chkBoxBtn);
+        chkBoxBtn.addEventListener('click', checkBoxButtonPressed)
+    }
+
+    function noteButtonPressed() {
+        
+        // add a note to the panelBody
+        // place the note into "edit mode"
+        // make the note your focus
+    }
+
+    function checkBoxButtonPressed() {
+
+    }
 
     function panelHeaderClicked() {
         if (panelHeaderState == 0) {
@@ -36,6 +98,13 @@ const createPanel = (data) => {
         }
     }
 
+    function panelBodyMouseover() {
+        panelContainer.classList.remove('unmoused');
+    }
+
+    function panelBodyMouseout() {
+        panelContainer.classList.add('unmoused');
+    }
     
     function convertTextEditToTitle() {
         let newPHTE = document.createElement('div');
@@ -81,53 +150,7 @@ const createPanel = (data) => {
     //create the panel using data.
     return panelContainer
 
-    function createInitialPlusBox() {
-        panelContainer = document.createElement('div');
-        panelContainer.classList.add('panel-container');
-        panelContainer.classList.add('empty');
-        panelContainer.classList.add('text-edit');
-        panelContainer.classList.add('initial-adder-box');
-        
-        
-        panelHeader = document.createElement('div');
-        panelHeader.classList.add('panel-header');
-        panelHeader.classList.add('initial-adder-box');
-        panelHeader.classList.add('curve-bottom');
-        
-        panelContainer.append(panelHeader);
-        
-        panelBody = document.createElement('div');
-        panelBody.classList.add('panel-body');
-        panelContainer.append(panelBody);
-
-
-        roamingX = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-        roamingX.classList.add('roaming-x');
-        roamingX.classList.add('initial-adder-box');
-        roamingX.setAttribute('width', '50');
-        roamingX.setAttribute('height', '50');
-        roamingX.setAttribute('viewBox', '0 0 100 100');
-        panelHeader.append(roamingX);
-        panelHeader.addEventListener('click', panelHeaderClicked);
-        let path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-        path.setAttribute('d', 'M40 0H60V40H100V60H60V100H40V60H0V40H40V0Z');
-        path.setAttribute('fill', '#00000050');
-        roamingX.append(path);
-
-        bodyElementAdder = document.createElement('div');
-        bodyElementAdder.classList.add('body-element-adder');
-        bodyElementAdder.classList.add('disabled');
-        panelBody.append(bodyElementAdder);
-
-        let noteBtn = document.createElement('img');
-        noteBtn.classList.add('adder-button');
-        noteBtn.setAttribute('href','./testSquare.png');
-        bodyElementAdder.append(noteBtn);
-        let chkBoxBtn = document.createElement('img');
-        chkBoxBtn.classList.add('adder-button');
-        chkBoxBtn.setAttribute('href','./testSquare.png');
-        bodyElementAdder.append(chkBoxBtn);
-    }
+    
 }
 
 
